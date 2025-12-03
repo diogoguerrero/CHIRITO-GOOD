@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>PROGRAMACION finalmente</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MetalZero — Interactivo con foto</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <header class="top">
+      <div class="title-col">
+        <h1 id="ui-title">Huella de carbono — Industria metalúrgica (Perú)</h1>
+        <p id="ui-lead" class="lead">Tu guía interactiva: selecciona una fuente, compara y resuelve casos prácticos.</p>
+      </div>
+
+      <div class="controls-col">
+        <div class="palette" id="palette"></div>
+        <div class="controls-top">
+          <label class="file-btn">Subir foto
+            <input id="input-photo" type="file" accept="image/*">
+          </label>
+          <button id="use-sample" class="btn secondary">Usar imagen de ejemplo</button>
+          <select id="langSelect" aria-label="Idioma">
+            <option value="es">ES</option>
+            <option value="en">EN</option>
+            <option value="it">IT</option>
+            <option value="fr">FR</option>
+            <option value="zh">中文</option>
+            <option value="ru">RU</option>
+            <option value="de">DE</option>
+          </select>
+          <button id="modeBtn" class="btn">Modo oscuro</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-grid">
+      <!-- LEFT: persona, opciones, world compare -->
+      <section class="left card">
+        <div class="person-card">
+          <div class="person-visual" id="person-visual">
+            <!-- Default uses uploaded image if present; also show SVG avatar fallback -->
+            <img id="person-photo" src="sandbox:/mnt/data/8ef87d3f-cbfb-4a08-a00a-3b3c7fb75d2c.png" alt="Tu foto" style="display:block; width:120px; height:150px; object-fit:cover; border-radius:10px; border:3px solid #fff;">
+            <div id="person-svg" class="person-svg" style="display:none;">
+              <div class="head"></div>
+              <div class="body"></div>
+              <div class="arm" id="arm-right"></div>
+            </div>
+            <div class="bubble" id="bubble">¿Qué quieres analizar?</div>
+          </div>
+
+          <div class="person-meta">
+            <strong>Guía: tú</strong>
+            <div class="muted small">Haz clic en las opciones para ver detalles y simulaciones.</div>
+          </div>
+        </div>
+
+        <div class="options">
+          <button class="opt" data-key="direct" id="btn-direct">A) Fuentes directas</button>
+          <button class="opt" data-key="indirect" id="btn-indirect">B) Fuentes indirectas</button>
+          <button class="opt" data-key="regional" id="btn-regional">C) Costa / Sierra / Selva</button>
+        </div>
+
+        <div class="compare card small" id="compareCard">
+          <h3 id="compare-title">Comparación con potencias mundiales</h3>
+          <div class="world-bars" id="world-bars"></div>
+          <div class="muted small">Valores ilustrativos: intensidad relativa por unidad de producción.</div>
+        </div>
+      </section>
+
+      <!-- RIGHT: explain, chart, simulate, quiz, bibliography -->
+      <section class="right-col">
+        <article class="explain card" id="explain">
+          <h2 id="exp-title">Elige una opción</h2>
+          <p id="exp-text">Aquí aparecerá la definición, causas y consecuencias (énfasis Perú).</p>
+          <ul id="exp-list"></ul>
+          <div id="exp-peru" class="muted small"></div>
+        </article>
+
+        <aside class="chart card" id="chartCard">
+          <h3 id="chart-title">Impacto por subfuentes</h3>
+          <div id="bars" class="bars"></div>
+          <div class="legend small"><span class="neg">Negativo (↑ emisiones)</span> · <span class="neutral">Neutro</span> · <span class="pos">Positivo (↓ emisiones)</span></div>
+          <div style="margin-top:10px;">
+            <button id="simulateMit" class="small-btn">Simular mitigación (Antes / Después)</button>
+          </div>
+        </aside>
+
+        <div class="quiz card" id="quizCard">
+          <h3>Problemas prácticos</h3>
+          <div id="quizContainer"></div>
+          <div id="quizResult" class="muted small"></div>
+        </div>
+
+        <div class="sources card small" id="sources">
+          <h4>Bibliografía y fuentes</h4>
+          <ul id="biblio">
+            <li>MINAM — Inventario Nacional de Gases Efecto Invernadero (INGEI).</li>
+            <li>OEFA — Reportes de fiscalización sectorial.</li>
+            <li>World Bank — Diagnósticos sobre descarbonización del sector minero.</li>
+            <li>Casos: La Oroya, Ilo — estudios y artículos especializados.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="small muted">Interfaz educativa — datos didácticos. Ajusta cifras con informes oficiales para tu entrega.</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Huella de Carbono – Sector Metalúrgico Perú</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1 id="title">Huella de Carbono del Sector Metalúrgico – Perú</h1>
+
+    <div class="controls">
+        <select id="languageSelector">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+            <option value="it">Italiano</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="ru">Русский</option>
+            <option value="ko">한국어</option>
+        </select>
+
+        <button id="modeToggle">Modo Claro/Oscuro</button>
+    </div>
+</header>
+
+<section class="presenter-section">
+    <img src="presentador civil.png" class="presenter" alt="Presentador">
+    <p id="presenterText">
+        ¡Hola! Soy tu presentador. Vamos a analizar la huella de carbono del sector metalúrgico peruano,
+        sus causas, consecuencias y cómo se compara con otros países.
+    </p>
+</section>
+
+<section class="color-legend">
+    <h2 id="legendTitle">Significado de Colores</h2>
+    <div class="legend-item red"><strong>Rojo:</strong> Muy negativo / impacto severo.</div>
+    <div class="legend-item orange"><strong>Naranja:</strong> Negativo moderado.</div>
+    <div class="legend-item yellow"><strong>Amarillo:</strong> Riesgo controlado / neutro.</div>
+    <div class="legend-item green"><strong>Verde:</strong> Positivo / bajo impacto.</div>
+</section>
+
+<section class="data-section">
+    <h2 id="dataTitle">Comparación Internacional</h2>
+    <canvas id="chart"></canvas>
+</section>
+
+<section class="questions-section">
+    <h2 id="questionsTitle">Preguntas Interactivas</h2>
+
+    <div class="question">
+        <p class="q-text" id="q1">1. ¿Cuál es la principal fuente directa de CO₂ en la metalurgia?</p>
+        <button class="option" onclick="selectOption(1,'A')">A) Transporte</button>
+        <button class="option" onclick="selectOption(1,'B')">B) Electricidad</button>
+        <button class="option" onclick="selectOption(1,'C')">C) Combustión en hornos</button>
+
+        <div class="answer" id="a1"></div>
+    </div>
+
+    <div class="question">
+        <p class="q-text" id="q2">2. ¿Qué región peruana recibe mayor impacto por emisiones industriales?</p>
+        <button class="option" onclick="selectOption(2,'A')">A) Selva</button>
+        <button class="option" onclick="selectOption(2,'B')">B) Sierra</button>
+        <button class="option" onclick="selectOption(2,'C')">C) Costa</button>
+
+        <div class="answer" id="a2"></div>
+    </div>
+
+    <div class="question">
+        <p class="q-text" id="q3">3. ¿Qué acción ayuda más a reducir la huella?</p>
+        <button class="option" onclick="selectOption(3,'A')">A) Más transporte</button>
+        <button class="option" onclick="selectOption(3,'B')">B) Energía renovable</button>
+        <button class="option" onclick="selectOption(3,'C')">C) Aumentar calcinación</button>
+
+        <div class="answer" id="a3"></div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
